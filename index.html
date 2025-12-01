@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio - 情報系大学生</title>
-    <!-- FontAwesomeのCDNを読み込み（アイコン代替用） -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         /*
         ========================================
-        1. 変数と基本設定
+        1. 変数と基本設定 (日大の桜色を基調に変更)
         ========================================
         */
         :root {
-            --main-color: #2563EB; /* 青 */
-            --accent-color: #93C5FD; /* 薄い青 */
-            --text-color: #1F2937; /* 濃いグレー */
+            --main-color: #E91E63; /* 桜色に近い強いピンク */
+            --accent-color: #F8BBD0; /* 淡いピンク */
+            --text-color: #424242; /* 濃いグレー (視認性確保) */
             --bg-color: #FFFFFF; /* 白 */
-            --light-gray: #F3F4F6; /* 薄い背景色 */
+            --light-gray: #FAFAFA; /* ごく薄い背景色 */
             --header-height: 60px;
         }
 
@@ -49,7 +48,8 @@
             height: var(--header-height);
             display: flex;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            /* 影の色も桜色に合わせて調整 */
+            box-shadow: 0 2px 4px rgba(233, 30, 99, 0.2); 
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -78,7 +78,7 @@
             margin-bottom: 20px;
             background-color: var(--bg-color);
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* 影を強調し、カード感を出す */
         }
 
         .section-title {
@@ -90,6 +90,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            /* タイトルに下線を追加して強調 */
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section-title i {
@@ -107,11 +113,11 @@
             padding: 20px;
             background-color: var(--light-gray);
             border-radius: 8px;
-            border: 2px solid var(--accent-color);
+            border: 2px solid var(--main-color); /* メインカラーの枠線 */
         }
 
         #profile .avatar {
-            /* 画像の代わりとなる色付きのボックス */
+            /* 桜のイメージでアイコンを変更 */
             width: 100px;
             height: 100px;
             background-color: var(--accent-color);
@@ -122,7 +128,7 @@
             justify-content: center;
             font-size: 2.5rem;
             color: var(--main-color);
-            box-shadow: 0 0 0 5px var(--main-color);
+            box-shadow: 0 0 0 5px var(--main-color), 0 0 0 8px var(--accent-color); /* 二重の枠線で強調 */
         }
 
         #profile h2 {
@@ -152,13 +158,15 @@
 
         #gakuchika .content-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.15); /* 桜色に合わせたホバー効果 */
         }
 
         #gakuchika h3 {
             font-size: 1.25rem;
             color: var(--main-color);
-            border-left: 4px solid var(--main-color);
+            /* 桜のイメージで左のボーダーを太く、角丸に */
+            border-left: 6px solid var(--main-color);
+            border-radius: 3px 0 0 3px;
             padding-left: 10px;
             margin-top: 0;
             margin-bottom: 20px;
@@ -168,17 +176,27 @@
             text-align: justify;
             margin-bottom: 1em;
         }
+        
+        /* 強調文字 (太字) の色をメインカラーにする */
+        #gakuchika p strong {
+            color: var(--main-color);
+        }
 
         #gakuchika .point-list {
             margin-top: 25px;
             padding: 0;
             list-style: none;
+            background-color: var(--accent-color); /* 背景色を付けてリストを強調 */
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px dashed var(--main-color);
         }
 
         #gakuchika .point-list li {
             position: relative;
             padding-left: 25px;
             margin-bottom: 10px;
+            font-weight: 500;
         }
 
         #gakuchika .point-list li::before {
@@ -254,40 +272,33 @@
 </head>
 <body>
 
-    <!-- 1. ヘッダー -->
     <header>
         <div class="container">
-            <div class="logo">My Portfolio</div>
-            <!-- ナビゲーションリンクは省略（シングルページのため） -->
-        </div>
+            <div class="logo"><i class="fas fa-gem"></i> My Portfolio</div> 
+            </div>
     </header>
 
     <main class="container">
 
-        <!-- 2. 自己紹介セクション -->
         <section id="profile">
             <div class="section-title">
-                <i class="fas fa-user-circle"></i> 自己紹介 (Profile)
+                <i class="fas fa-user-graduate"></i> 自己紹介 (Profile)
             </div>
             <div class="profile-box">
-                <!-- 画像代用ボックス -->
-                <div class="avatar"><i class="fas fa-laptop-code"></i></div>
-                <!-- プレースホルダー -->
+                <div class="avatar"><i class="fas fa-graduation-cap"></i></div>
                 <h2>内田 裕之 / Hiroyuki Uchida</h2>
                 <p>日本大学 理工学部 応用情報工学科</p>
                 <p>Web技術、データ分析、バックエンド開発に関心があります。</p>
             </div>
         </section>
 
-        <!-- 3. 学生時代に力を入れたこと（ガクチカ）セクション -->
         <section id="gakuchika">
             <div class="section-title">
-                <i class="fas fa-bolt"></i> 学生時代に力を入れたこと (Commitment)
+                <i class="fas fa-handshake"></i> 学生時代に力を入れたこと (Commitment)
             </div>
             <div class="content-card">
                 <h3>自ら働きかけて信頼関係を構築すること</h3>
 
-                <!-- ユーザー提供のガクチカ文章を整形して配置 -->
                 <p>
                     私が学生時代に力を入れたことは、**自ら働きかけて信頼関係を構築する**ことです。
                     特に高校入学時、知人がおらず孤立しがちな状況を変えるため、私は**毎朝クラス全員に「自分から元気に挨拶すること」を徹底しました。**
@@ -311,17 +322,8 @@
             </div>
         </section>
 
-        <!-- 補足：ここにプロジェクト紹介など、他のセクションを追加できます -->
-        <!--
-        <section id="projects">
-             <div class="section-title"><i class="fas fa-code"></i> プロジェクト (Projects)</div>
-             <p>開発したアプリケーションや成果物を紹介...</p>
-        </section>
-        -->
+        </main>
 
-    </main>
-
-    <!-- 4. フッター -->
     <footer>
         &copy; 2025 My Portfolio. All Rights Reserved.
     </footer>
