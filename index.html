@@ -6,21 +6,15 @@
     <title>My Portfolio - 情報系大学生</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
-        /*
-        ========================================
-        1. 変数と基本設定 (日大の桜色を基調に変更)
-        ========================================
-        */
         :root {
-            --main-color: #E91E63; /* 桜色に近い強いピンク */
-            --accent-color: #F8BBD0; /* 淡いピンク */
-            --text-color: #424242; /* 濃いグレー (視認性確保) */
-            --bg-color: #FFFFFF; /* 白 */
-            --light-gray: #FAFAFA; /* ごく薄い背景色 */
+            --main-color: #E91E63;
+            --accent-color: #F8BBD0;
+            --text-color: #424242;
+            --bg-color: #FFFFFF;
+            --light-gray: #FAFAFA;
             --header-height: 60px;
         }
 
-        /* 日本語対応と基本フォント設定 */
         body {
             font-family: 'Inter', 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
             margin: 0;
@@ -30,25 +24,18 @@
             line-height: 1.7;
         }
 
-        /* 共通コンテナ設定 */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /*
-        ========================================
-        2. ヘッダー
-        ========================================
-        */
         header {
             background-color: var(--main-color);
             color: var(--bg-color);
             height: var(--header-height);
             display: flex;
             align-items: center;
-            /* 影の色も桜色に合わせて調整 */
             box-shadow: 0 2px 4px rgba(233, 30, 99, 0.2); 
             position: sticky;
             top: 0;
@@ -68,17 +55,12 @@
             letter-spacing: 1px;
         }
 
-        /*
-        ========================================
-        3. セクション共通スタイル
-        ========================================
-        */
         section {
             padding: 40px 0;
             margin-bottom: 20px;
             background-color: var(--bg-color);
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* 影を強調し、カード感を出す */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
         }
 
         .section-title {
@@ -90,7 +72,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            /* タイトルに下線を追加して強調 */
             border-bottom: 3px solid var(--accent-color);
             padding-bottom: 10px;
             width: fit-content;
@@ -103,32 +84,30 @@
             font-size: 1.2em;
         }
 
-        /*
-        ========================================
-        4. 自己紹介セクション
-        ========================================
-        */
         #profile .profile-box {
             text-align: center;
             padding: 20px;
             background-color: var(--light-gray);
             border-radius: 8px;
-            border: 2px solid var(--main-color); /* メインカラーの枠線 */
+            border: 2px solid var(--main-color);
         }
 
         #profile .avatar {
-            /* 桜のイメージでアイコンを変更 */
-            width: 100px;
-            height: 100px;
-            background-color: var(--accent-color);
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: var(--main-color);
-            box-shadow: 0 0 0 5px var(--main-color), 0 0 0 8px var(--accent-color); /* 二重の枠線で強調 */
+            overflow: hidden;
+            box-shadow: 0 0 0 5px var(--main-color), 0 0 0 8px var(--accent-color);
+            background-color: #fff; /* 画像透過時用 */
+        }
+
+        /* 修正点: 画像が正しく収まるように設定 */
+        #profile .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            object-position: center top; /* 顔が見えるように位置調整 */
         }
 
         #profile h2 {
@@ -143,11 +122,6 @@
             margin-top: 0;
         }
 
-        /*
-        ========================================
-        5. ガクチカセクション
-        ========================================
-        */
         #gakuchika .content-card {
             padding: 25px;
             border: 1px solid var(--accent-color);
@@ -158,13 +132,12 @@
 
         #gakuchika .content-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.15); /* 桜色に合わせたホバー効果 */
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.15);
         }
 
         #gakuchika h3 {
             font-size: 1.25rem;
             color: var(--main-color);
-            /* 桜のイメージで左のボーダーを太く、角丸に */
             border-left: 6px solid var(--main-color);
             border-radius: 3px 0 0 3px;
             padding-left: 10px;
@@ -177,7 +150,6 @@
             margin-bottom: 1em;
         }
         
-        /* 強調文字 (太字) の色をメインカラーにする */
         #gakuchika p strong {
             color: var(--main-color);
         }
@@ -186,7 +158,7 @@
             margin-top: 25px;
             padding: 0;
             list-style: none;
-            background-color: var(--accent-color); /* 背景色を付けてリストを強調 */
+            background-color: var(--accent-color);
             padding: 15px;
             border-radius: 5px;
             border: 1px dashed var(--main-color);
@@ -200,7 +172,7 @@
         }
 
         #gakuchika .point-list li::before {
-            content: "\f058"; /* check-circleアイコン */
+            content: "\f058";
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
             color: var(--main-color);
@@ -209,11 +181,6 @@
             top: 0;
         }
 
-        /*
-        ========================================
-        6. フッター
-        ========================================
-        */
         footer {
             background-color: var(--text-color);
             color: var(--light-gray);
@@ -223,50 +190,16 @@
             margin-top: 40px;
         }
 
-        /*
-        ========================================
-        7. レスポンシブデザイン (タブレット・PC向け)
-        ========================================
-        */
         @media (min-width: 768px) {
-            .container {
-                padding: 30px 20px;
-            }
-
-            section {
-                padding: 60px 0;
-                margin-bottom: 30px;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            #profile .profile-box {
-                padding: 40px;
-            }
-
-            #profile .avatar {
-                width: 120px;
-                height: 120px;
-                font-size: 3rem;
-            }
-
-            #profile h2 {
-                font-size: 2.5rem;
-            }
-
-            #profile p {
-                font-size: 1.2rem;
-            }
-
-            #gakuchika .content-card {
-                padding: 40px;
-            }
-
-            #gakuchika h3 {
-                font-size: 1.5rem;
-            }
+            .container { padding: 30px 20px; }
+            section { padding: 60px 0; margin-bottom: 30px; }
+            .section-title { font-size: 2.2rem; }
+            #profile .profile-box { padding: 40px; }
+            #profile .avatar { width: 150px; height: 150px; }
+            #profile h2 { font-size: 2.5rem; }
+            #profile p { font-size: 1.2rem; }
+            #gakuchika .content-card { padding: 40px; }
+            #gakuchika h3 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -275,17 +208,19 @@
     <header>
         <div class="container">
             <div class="logo"><i class="fas fa-gem"></i> My Portfolio</div> 
-            </div>
+        </div>
     </header>
 
     <main class="container">
-
         <section id="profile">
             <div class="section-title">
                 <i class="fas fa-user-graduate"></i> 自己紹介 (Profile)
             </div>
             <div class="profile-box">
-                <div class="avatar"><i class="fas fa-graduation-cap"></i></div>
+                <div class="avatar">
+                    <img src="computer_man4_laugh.jpg" alt="内田 裕之のアバター画像">
+                </div>
+                
                 <h2>内田 裕之 / Hiroyuki Uchida</h2>
                 <p>日本大学 理工学部 応用情報工学科</p>
                 <p>Web技術、データ分析、バックエンド開発に関心があります。</p>
@@ -298,31 +233,26 @@
             </div>
             <div class="content-card">
                 <h3>自ら働きかけて信頼関係を構築すること</h3>
-
                 <p>
-                    私が学生時代に力を入れたことは、**自ら働きかけて信頼関係を構築する**ことです。
-                    特に高校入学時、知人がおらず孤立しがちな状況を変えるため、私は**毎朝クラス全員に「自分から元気に挨拶すること」を徹底しました。**
+                    私が学生時代に力を入れたことは、<strong>自ら働きかけて信頼関係を構築する</strong>ことです。
+                    特に高校入学時、知人がおらず孤立しがちな状況を変えるため、私は<strong>毎朝クラス全員に「自分から元気に挨拶すること」を徹底しました。</strong>
                 </p>
-
                 <p>
-                    最初は反応が薄いこともありましたが、これを**毎日継続する**ことで、次第に周囲も心を開いてくれるようになりました。
+                    最初は反応が薄いこともありましたが、これを<strong>毎日継続する</strong>ことで、次第に周囲も心を開いてくれるようになりました。
                     この主体的な行動の結果、多くの友人ができただけでなく、先生からも「クラスの雰囲気が良くなった」と信頼を寄せていただけるようになりました。
                 </p>
-
                 <p>
-                    この経験から、**小さな行動でも主体的に継続する**ことで、周囲の環境や人間関係を良い方向に変えられることを深く学びました。
+                    この経験から、<strong>小さな行動でも主体的に継続する</strong>ことで、周囲の環境や人間関係を良い方向に変えられることを深く学びました。
                 </p>
-
                 <ul class="point-list">
-                    <li>**行動:** 毎朝クラス全員に「元気に挨拶する」ことを徹底</li>
-                    <li>**課題:** 高校入学時の孤立しがちな状況を変えること</li>
-                    <li>**結果:** 多くの友人ができ、先生からの信頼も獲得</li>
-                    <li>**学び:** 主体的な継続が環境改善につながること</li>
+                    <li><strong>行動:</strong> 毎朝クラス全員に「元気に挨拶する」ことを徹底</li>
+                    <li><strong>課題:</strong> 高校入学時の孤立しがちな状況を変えること</li>
+                    <li><strong>結果:</strong> 多くの友人ができ、先生からの信頼も獲得</li>
+                    <li><strong>学び:</strong> 主体的な継続が環境改善につながること</li>
                 </ul>
             </div>
         </section>
-
-        </main>
+    </main>
 
     <footer>
         &copy; 2025 My Portfolio. All Rights Reserved.
